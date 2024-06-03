@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Course</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <form action="/edit-course/<%= course.id %>" method="POST" enctype="multipart/form-data">
+                    <h1 class="mb-4">Edit Course</h1>
+
+                    <div class="form-group">
+                        <label for="title">Title:</label>
+                        <input type="text" id="title" name="title" class="form-control" value="<%= course.title %>" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description:</label>
+                        <textarea id="description" name="description" class="form-control" required><%= course.description %></textarea>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="price">Price:</label>
+                            <input type="number" id="price" name="price" class="form-control" step="0.01" value="<%= course.price %>" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="post_date">Post Date:</label>
+                            <input type="date" id="post_date" name="post_date" class="form-control" value="<%= course.post_date %>" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="close_date">Close Date:</label>
+                            <input type="date" id="close_date" name="close_date" class="form-control" value="<%= course.close_date %>" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="image">Image:</label>
+                            <input type="file" id="image" name="image" class="form-control-file" accept="image/*">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="instructor_name">Instructor Name:</label>
+                            <input type="text" id="instructor_name" name="instructor_name" class="form-control" value="<%= course.instructor_name %>" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="instructor_image">Instructor Image:</label>
+                            <input type="file" id="instructor_image" name="instructor_image" class="form-control-file" accept="image/*">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="rating">Rating:</label>
+                            <input type="number" id="rating" name="rating" class="form-control" step="0.1" max="5" value="<%= course.rating %>" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="duration_weeks">Duration (weeks):</label>
+                            <input type="number" id="duration_weeks" name="duration_weeks" class="form-control" value="<%= course.duration_weeks %>" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="what_you_learn">What you'll learn:</label>
+                        <textarea id="what_you_learn" name="what_you_learn" class="form-control" required><%= course.what_you_learn %></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Update Course</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

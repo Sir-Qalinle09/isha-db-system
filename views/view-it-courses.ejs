@@ -1,0 +1,84 @@
+
+
+
+
+
+<!-- views/view-courses.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Courses</title>
+    <link rel="stylesheet" href="/css/it.css">
+    <link rel="icon" href="/image/logo.png" type="image/x-icon">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+
+
+</head>
+<body>
+  <nav class="navbar">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sidebarCollapse">
+      <i class="fas fa-bars"></i>
+    </button>
+    <a href="/logout" class="btn btn-danger logout-btn">Logout</a>
+  </nav>
+  <div class="collapse" id="sidebarCollapse">
+    <nav class="sidebar">
+      <a href="#" class="navbar-brand">Admin</a>
+      <div class="menu-content">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link" href="/dashboard">Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/view-it-courses">Courses</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/select">Registration List</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+    <div class="it-container">
+        <div class="it-title">
+            <h3>list-course</h3>
+            <!-- Add Course Button -->
+            <button onclick="location.href='/add-course'" class="add-course-btn">Add Course</button>
+        </div>
+        <div class="container-it">
+            <% courses.forEach(course => { %>
+            <div class="it">
+                <div class="it-image" onclick="location.href='/course/<%= course.id %>'" >
+                    <img src="/images/<%= course.image %>" alt="">
+                </div>
+                <button class="it-price"><%= course.price %>$</button>
+                <div class="it-text">
+                    <h3><%= course.title %></h3>
+                </div>
+                <div class="it-dates">
+                    <p style="color: #1dcd1a;"><b>Post Date:</b> <%= new Date(course.post_date).toLocaleDateString('en-GB') %></p>
+                    <p  style="color: red;"><b>Close Date:</b> <%= new Date(course.close_date).toLocaleDateString('en-GB') %></p>
+                </div>
+
+                <div class="it-actions mt-3">
+                    <button onclick="location.href='/edit-course/<%= course.id %>'" class="btn btn-primary">Edit</button>
+                    <form action="/delete-course/<%= course.id %>" method="POST" style="display:inline;">
+                        <button type="submit"  class="btn btn-danger">Delete</button>
+                    </form>
+                </div>
+            </div>
+            <% }) %>
+        </div>
+    </div>
+
+
+         <!-- Bootstrap JS and dependencies (jQuery) -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

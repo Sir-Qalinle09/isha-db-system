@@ -1,0 +1,219 @@
+<!-- views/view-courses-readonly.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Courses</title>
+  <link rel="stylesheet" href="/css/it.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+</head>
+<body>
+
+
+<!-- 
+header and nav
+-->
+
+<div class="black-head">
+  <div class="envelop">
+      <i class="fa-solid fa-envelope"></i>
+      <span>Isha@gmail.com</span>
+  </div>
+
+  <div class="fone">
+      <i class="fa-solid fa-phone"></i>
+      <span>+252-063-3255609</span>
+  </div>
+
+  <div class="icons-social">
+  
+
+    <a href="https://www.facebook.com/profile.php?id=61558524569495&mibextid=ZbWKwL" target="_blank"> <i class="fa-brands fa-facebook"></i></a>
+ 
+    <a href="https://www.linkedin.com/in/isha-horn-academic-698bb7304" target="_blank"><i class="fa-brands fa-linkedin"></i></a> 
+    
+     
+  </div>
+</div>
+
+<header class="header">
+  <div class="container">
+  <div class="logo">
+  <img src="./image/logo.png" alt=""> 
+  <h2>Isha Academy</h2>
+  </div>
+  <nav class="menu">
+  <div class="head">
+    
+    <img src="./image/logo.png" alt=""> 
+      <button type="button" class="close-menu-btn"></button>
+
+  </div>
+  <ul>
+        <li><a href="/">Home</a></li>
+
+        <li class="dropdown">
+          <a href="#">Pages</a>
+          <i class="fa-solid fa-angle-down"></i>
+                <ul class="sub-menu">
+                  <li><a href="/mission"><span>Our Mission</span></a></li>
+                  <li><a href="/policy"> <span>Policies</span></a></li>
+                  <li><a href="/contact"><span>Contact us </span></a></li>
+                  <li><a href="/instructor"> <span>Instructors</span></a></li>
+    
+                </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="#">Courses</a>
+          <i class="fa-solid fa-angle-down"></i>
+                <ul class="sub-menu">
+                  <li><a href="/view-courses-readonly"><span>IT</span></a></li>
+                  <li class="dropdown">
+                    <a href="#"><span>Language Courses</span></a>
+                    <i class="fa-solid fa-angle-down"></i>
+                    <ul class="sub-menu sub-menu-right">
+                      <li><a href="#"><span>Somali</span></a></li>
+                      <li><a href="#"><span>English</span></a></li>
+                      <li><a href="#"><span>Arabic</span></a></li>
+                    </ul>
+                  </li>
+                  <li class="dropdown">
+                    <a href="#"><span>Research Courses</span></a>
+                    <i class="fa-solid fa-angle-down"></i>
+                    <ul class="sub-menu sub-menu-right">
+                      <li><a href="#"><span>Market Research</span></a></li>
+                      <li><a href="#"><span>Social Research</span></a></li>
+                    </ul>
+                  </li>
+
+                  <li class="dropdown">
+                    <a href="#"><span>Data Courses </span></a>
+                    <i class="fa-solid fa-angle-down"></i>
+                    <ul class="sub-menu sub-menu-right">
+                      <li><a href="#"><span>Data Literacy</span></a></li>
+                      <li><a href="#"><span>Data Governanace</span></a></li>
+                      <li><a href="#"><span>Data Analytics</span></a></li>
+                      <li><a href="#"><span>Hr Analytics</span></a></li>
+
+                    </ul>
+                  </li>
+
+                  <li class="dropdown">
+                    <a href="#"><span>More Courses</span></a>
+                    <i class="fa-solid fa-angle-down"></i>
+                    <ul class="sub-menu sub-menu-right">
+                      <li><a href="#"><span>Power Bi</span></a></li>
+                      <li><a href="#"> <span>Customer Care</span> </a></li>
+                      <li><a href="#"> <span>Project Management</span></a></li>
+                      <li><a href="#"> <span>Office Cleaning</span></a></li>
+                    </ul>
+                  </li>
+                </ul>
+        </li>        
+
+        <li class="dropdown">
+          <a href="/register">Registeration</a>
+        </li>
+
+  </ul>
+
+  </nav>
+  <div class="header-right">
+  <button type="button" class="search-btn icon-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+  <button type="button" class="cart-btn icon-btn"><i class="fa-solid fa-shopping-cart"></i></button>
+  <button type="button" class="open-menu-btn">
+    <span class="line line-1"></span>
+    <span class="line line-2"></span>
+    <span class="line line-3"></span>
+  </button>
+  </div>
+  </div>
+</header>
+
+<!--
+  it-courses
+  -->
+<div class="it-container">
+    <div class="it-title">
+        <h3>IT-Courses</h3>
+    </div>
+    <div class="container-it">
+        <% courses.forEach(course => { %>
+          <div class="it" onclick="location.href='/course/<%= course.id %>'">
+            <div class="it-image" >
+                <img src="/images/<%= course.image %>" alt="">
+            </div>
+            <button class="it-price"><%= course.price %>$</button>
+            <div class="it-text">
+                <h3><%= course.title %></h3>
+            </div>
+            <div class="it-dates">
+              <p style="color: #1dcd1a;"><b>Post Date:</b> <%= new Date(course.post_date).toLocaleDateString('en-GB') %></p>
+              <p  style="color: red;"><b>Close Date:</b> <%= new Date(course.close_date).toLocaleDateString('en-GB') %></p>
+            </div>
+        </div>
+        <% }) %>
+    </div>
+</div>
+<!-- 
+Footer
+ -->
+
+ <section class="footer">
+  <div class="footer-row">
+
+
+      <div class="footer-col">
+     
+          <p>
+              Subscribe to our newsletter for a weekly dose
+              of news, updates, helpful tips, and
+              exclusive offers.
+          </p> 
+      </div>
+    <div class="footer-col">
+      <h4>Info</h4>
+      <ul class="links">
+          <li><a class="active" href="/index">Home</a></li>
+          <li><a href="/register">Registration</a></li>
+          <li><a href="/instructor">Instructors</a></li>
+          <li><a href="/contact">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Office</h4>
+      <p id="p">
+    
+      
+    Isha Academy, <br>
+    Burj Omar,6th Floor, <br>
+    1st Road, Hargeisa, Somaliland, Hargeisa,
+    </p>
+    </div>
+
+
+    <div class="footer-col">
+      <h4>Newsletter</h4>
+      <div>
+        <input type="text" placeholder="Your email" required id="input">
+        <button type="submit">SUBSCRIBE</button>
+      </div>
+      <div class="icons">
+        <a href="https://www.facebook.com/profile.php?id=61558524569495&mibextid=ZbWKwL" target="_blank"> <i class="fa-brands fa-facebook"></i></a>       
+        <a href="https://www.linkedin.com/in/isha-horn-academic-698bb7304" target="_blank"><i class="fa-brands fa-linkedin"></i></a> 
+      </div>
+    </div>
+  </div>
+</section>
+<div class="copy-right">
+  <h1><a href="/sitemap">Sitemap</a> | <a href="/copyright">Copyright © </a> |  <a href="/term&condition">Terms & Condition</a>  | <a href="/policy">Privacy</a>  |  <a href="/disclaimer"> Discalimer </a>  </h1>
+</div>
+ <script src="/script.js"></script>
+
+
+</body>
+</html>

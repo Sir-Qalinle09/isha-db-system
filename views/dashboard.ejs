@@ -1,0 +1,92 @@
+
+
+<!-- views/dashboard.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+  <link rel="icon" href="/image/logo.png" type="image/x-icon">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+  <style>
+    .sidebar {
+      background: #11101d;
+      padding: 15px;
+      z-index: 99;
+    }
+    .sidebar a {
+      color: #fff;
+      text-decoration: none;
+    }
+    .menu-title {
+      color: #fff;
+      font-size: 14px;
+      padding: 15px 20px;
+    }
+    .navbar {
+      color: #fff;
+      padding: 25px 20px;
+      font-size: 25px;
+      background: #000000;
+      cursor: pointer;
+    }
+    .navbar i {
+      color: white;
+    }
+    ul li a:hover {
+      color: #1dcd1a;
+    }
+    .main {
+      height: 100vh;
+      background: #21df08c3;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .main h1 {
+      color: #11101d;
+      font-size: 40px;
+    }
+    .logout-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sidebarCollapse">
+      <i class="fas fa-bars"></i>
+    </button>
+    <a href="/logout" class="btn btn-danger logout-btn">Logout</a>
+  </nav>
+  <div class="collapse" id="sidebarCollapse">
+    <nav class="sidebar">
+      <a href="#" class="navbar-brand">Admin</a>
+      <div class="menu-content">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link" href="/dashboard">Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/view-it-courses">Courses</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/select">Registration List</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  
+  <main class="main">
+    <h1>Welcome Back</h1>
+  </main>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
